@@ -17,37 +17,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 public interface WelcomeApi {
 
-    default WelcomeApiClient getDelegate() {
-        return new WelcomeApiClient() {};
-    }
+  default WelcomeApiClient getDelegate() {
+    return new WelcomeApiClient() {
+    };
+  }
 
-    /**
-     * GET / : Get Welcome
-     * **Test Endpoint** Returns the information about the Unofficial Medium API 
-     *
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "rootGet",
-        summary = "Get Welcome",
-        description = "**Test Endpoint** Returns the information about the Unofficial Medium API ",
-        tags = { "Welcome" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Get200Response.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<Get200Response> rootGet(
-        
-    ) {
-        return getDelegate().rootGet();
-    }
+  /**
+   * GET / : Get Welcome **Test Endpoint** Returns the information about the
+   * Unofficial Medium API
+   *
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "rootGet", summary = "Get Welcome", description = "**Test Endpoint** Returns the information about the Unofficial Medium API ", tags = {
+      "Welcome"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = Get200Response.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/", produces = {"application/json"})
+
+  default ResponseEntity<Get200Response> rootGet(
+
+  ) {
+    return getDelegate().rootGet();
+  }
 
 }

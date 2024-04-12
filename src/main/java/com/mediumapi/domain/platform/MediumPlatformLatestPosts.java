@@ -42,9 +42,10 @@ public class MediumPlatformLatestPosts {
 
   /**
    * Get latestposts
+   * 
    * @return latestposts
-  */
-  
+   */
+
   @JsonProperty("latestposts")
   public List<String> getLatestposts() {
     return latestposts;
@@ -55,4 +56,3 @@ public class MediumPlatformLatestPosts {
   }
 
 }
-

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Returns the list of &#x60;user_ids&#x60; of the followers of the user. 
+ * Returns the list of &#x60;user_ids&#x60; of the followers of the user.
  */
 
 @Getter
@@ -42,9 +42,10 @@ public class MediumUserFollowers {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -69,9 +70,10 @@ public class MediumUserFollowers {
 
   /**
    * Get followers
+   * 
    * @return followers
-  */
-  
+   */
+
   @JsonProperty("followers")
   public List<String> getFollowers() {
     return followers;
@@ -88,9 +90,10 @@ public class MediumUserFollowers {
 
   /**
    * Get count
+   * 
    * @return count
-  */
-  
+   */
+
   @JsonProperty("count")
   public Integer getCount() {
     return count;
@@ -107,9 +110,10 @@ public class MediumUserFollowers {
 
   /**
    * Get next
+   * 
    * @return next
-  */
-  
+   */
+
   @JsonProperty("next")
   public String getNext() {
     return next;
@@ -126,9 +130,10 @@ public class MediumUserFollowers {
 
   /**
    * Get totalFollowers
+   * 
    * @return totalFollowers
-  */
-  
+   */
+
   @JsonProperty("total_followers")
   public Integer getTotalFollowers() {
     return totalFollowers;
@@ -139,4 +144,3 @@ public class MediumUserFollowers {
   }
 
 }
-

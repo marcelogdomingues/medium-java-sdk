@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 /**
  * MediumArticleContent
  */
@@ -32,9 +31,10 @@ public class MediumArticleContent {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -51,9 +51,10 @@ public class MediumArticleContent {
 
   /**
    * Get content
+   * 
    * @return content
-  */
-  
+   */
+
   @JsonProperty("content")
   public String getContent() {
     return content;
@@ -64,4 +65,3 @@ public class MediumArticleContent {
   }
 
 }
-

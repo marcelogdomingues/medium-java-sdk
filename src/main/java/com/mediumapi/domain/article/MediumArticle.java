@@ -14,7 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Returns the article related information such as *id, title, subtitle, image_url, published_at, updated_at, reading_time, claps, voters, responses, tags, publication_id, publication_name, publication_slug, publication_url, publication_follower_count, publication_twitter_username, publication_facebook_pagename, publication_instagram_username, publication_creator, publication_editors*. 
+ * Returns the article related information such as *id, title, subtitle,
+ * image_url, published_at, updated_at, reading_time, claps, voters, responses,
+ * tags, publication_id, publication_name, publication_slug, publication_url,
+ * publication_follower_count, publication_twitter_username,
+ * publication_facebook_pagename, publication_instagram_username,
+ * publication_creator, publication_editors*.
  */
 @Getter
 @Setter
@@ -77,9 +82,10 @@ public class MediumArticle {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -96,9 +102,10 @@ public class MediumArticle {
 
   /**
    * Get title
+   * 
    * @return title
-  */
-  
+   */
+
   @JsonProperty("title")
   public String getTitle() {
     return title;
@@ -115,9 +122,10 @@ public class MediumArticle {
 
   /**
    * Get subtitle
+   * 
    * @return subtitle
-  */
-  
+   */
+
   @JsonProperty("subtitle")
   public String getSubtitle() {
     return subtitle;
@@ -134,9 +142,10 @@ public class MediumArticle {
 
   /**
    * Get author
+   * 
    * @return author
-  */
-  
+   */
+
   @JsonProperty("author")
   public String getAuthor() {
     return author;
@@ -153,9 +162,10 @@ public class MediumArticle {
 
   /**
    * Get publicationId
+   * 
    * @return publicationId
-  */
-  
+   */
+
   @JsonProperty("publication_id")
   public String getPublicationId() {
     return publicationId;
@@ -172,9 +182,10 @@ public class MediumArticle {
 
   /**
    * Get responsesCount
+   * 
    * @return responsesCount
-  */
-  
+   */
+
   @JsonProperty("responses_count")
   public Integer getResponsesCount() {
     return responsesCount;
@@ -191,9 +202,10 @@ public class MediumArticle {
 
   /**
    * Get wordCount
+   * 
    * @return wordCount
-  */
-  
+   */
+
   @JsonProperty("word_count")
   public Integer getWordCount() {
     return wordCount;
@@ -210,9 +222,10 @@ public class MediumArticle {
 
   /**
    * Get readingTime
+   * 
    * @return readingTime
-  */
-  @Valid 
+   */
+  @Valid
   @JsonProperty("reading_time")
   public BigDecimal getReadingTime() {
     return readingTime;
@@ -237,9 +250,10 @@ public class MediumArticle {
 
   /**
    * Get topics
+   * 
    * @return topics
-  */
-  
+   */
+
   @JsonProperty("topics")
   public List<String> getTopics() {
     return topics;
@@ -264,9 +278,10 @@ public class MediumArticle {
 
   /**
    * Get tags
+   * 
    * @return tags
-  */
-  
+   */
+
   @JsonProperty("tags")
   public List<String> getTags() {
     return tags;
@@ -283,9 +298,10 @@ public class MediumArticle {
 
   /**
    * Get claps
+   * 
    * @return claps
-  */
-  
+   */
+
   @JsonProperty("claps")
   public Integer getClaps() {
     return claps;
@@ -302,9 +318,10 @@ public class MediumArticle {
 
   /**
    * Get voters
+   * 
    * @return voters
-  */
-  
+   */
+
   @JsonProperty("voters")
   public Integer getVoters() {
     return voters;
@@ -321,9 +338,10 @@ public class MediumArticle {
 
   /**
    * Get isSeries
+   * 
    * @return isSeries
-  */
-  
+   */
+
   @JsonProperty("is_series")
   public Boolean getIsSeries() {
     return isSeries;
@@ -340,9 +358,10 @@ public class MediumArticle {
 
   /**
    * Get isShortform
+   * 
    * @return isShortform
-  */
-  
+   */
+
   @JsonProperty("is_shortform")
   public Boolean getIsShortform() {
     return isShortform;
@@ -359,9 +378,10 @@ public class MediumArticle {
 
   /**
    * Get isLocked
+   * 
    * @return isLocked
-  */
-  
+   */
+
   @JsonProperty("is_locked")
   public Boolean getIsLocked() {
     return isLocked;
@@ -378,9 +398,10 @@ public class MediumArticle {
 
   /**
    * Get lang
+   * 
    * @return lang
-  */
-  
+   */
+
   @JsonProperty("lang")
   public String getLang() {
     return lang;
@@ -397,9 +418,10 @@ public class MediumArticle {
 
   /**
    * Get publishedAt
+   * 
    * @return publishedAt
-  */
-  
+   */
+
   @JsonProperty("published_at")
   public String getPublishedAt() {
     return publishedAt;
@@ -416,9 +438,10 @@ public class MediumArticle {
 
   /**
    * Get lastModifiedAt
+   * 
    * @return lastModifiedAt
-  */
-  
+   */
+
   @JsonProperty("last_modified_at")
   public String getLastModifiedAt() {
     return lastModifiedAt;
@@ -435,9 +458,10 @@ public class MediumArticle {
 
   /**
    * Get uniqueSlug
+   * 
    * @return uniqueSlug
-  */
-  
+   */
+
   @JsonProperty("unique_slug")
   public String getUniqueSlug() {
     return uniqueSlug;
@@ -454,9 +478,10 @@ public class MediumArticle {
 
   /**
    * Get url
+   * 
    * @return url
-  */
-  
+   */
+
   @JsonProperty("url")
   public String getUrl() {
     return url;
@@ -473,9 +498,10 @@ public class MediumArticle {
 
   /**
    * Get imageUrl
+   * 
    * @return imageUrl
-  */
-  
+   */
+
   @JsonProperty("image_url")
   public String getImageUrl() {
     return imageUrl;
@@ -492,9 +518,10 @@ public class MediumArticle {
 
   /**
    * Get topHighlight
+   * 
    * @return topHighlight
-  */
-  
+   */
+
   @JsonProperty("top_highlight")
   public String getTopHighlight() {
     return topHighlight;
@@ -505,4 +532,3 @@ public class MediumArticle {
   }
 
 }
-

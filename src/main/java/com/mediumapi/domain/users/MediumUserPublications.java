@@ -32,9 +32,10 @@ public class MediumUserPublications {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -51,9 +52,10 @@ public class MediumUserPublications {
 
   /**
    * Get publications
+   * 
    * @return publications
-  */
-  @Valid 
+   */
+  @Valid
   @JsonProperty("publications")
   public MediumUserPublicationsPublications getPublications() {
     return publications;

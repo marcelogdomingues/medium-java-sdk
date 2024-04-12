@@ -53,9 +53,10 @@ public class MediumArticleAssetsAssets {
 
   /**
    * Get images
+   * 
    * @return images
-  */
-  
+   */
+
   @JsonProperty("images")
   public List<String> getImages() {
     return images;
@@ -80,9 +81,10 @@ public class MediumArticleAssetsAssets {
 
   /**
    * Get githubGists
+   * 
    * @return githubGists
-  */
-  
+   */
+
   @JsonProperty("github_gists")
   public List<String> getGithubGists() {
     return githubGists;
@@ -107,9 +109,10 @@ public class MediumArticleAssetsAssets {
 
   /**
    * Get youtube
+   * 
    * @return youtube
-  */
-  @Valid 
+   */
+  @Valid
   @JsonProperty("youtube")
   public List<@Valid MediumArticleAssetsAssetsYoutubeInner> getYoutube() {
     return youtube;
@@ -134,9 +137,10 @@ public class MediumArticleAssetsAssets {
 
   /**
    * Get anchors
+   * 
    * @return anchors
-  */
-  @Valid 
+   */
+  @Valid
   @JsonProperty("anchors")
   public List<@Valid MediumArticleAssetsAssetsAnchorsInner> getAnchors() {
     return anchors;
@@ -153,9 +157,10 @@ public class MediumArticleAssetsAssets {
 
   /**
    * Get otherEmbeds
+   * 
    * @return otherEmbeds
-  */
-  @Valid 
+   */
+  @Valid
   @JsonProperty("other_embeds")
   public MediumArticleAssetsAssetsOtherEmbeds getOtherEmbeds() {
     return otherEmbeds;
@@ -166,4 +171,3 @@ public class MediumArticleAssetsAssets {
   }
 
 }
-

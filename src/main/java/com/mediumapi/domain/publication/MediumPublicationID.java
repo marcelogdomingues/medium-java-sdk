@@ -31,9 +31,10 @@ public class MediumPublicationID {
 
   /**
    * Unique hash id of the publication.
+   * 
    * @return publicationId
-  */
-  
+   */
+
   @JsonProperty("publication_id")
   public String getPublicationId() {
     return publicationId;
@@ -50,9 +51,10 @@ public class MediumPublicationID {
 
   /**
    * Same publication slug that you passed in the path parameters.
+   * 
    * @return publicationSlug
-  */
-  
+   */
+
   @JsonProperty("publication_slug")
   public String getPublicationSlug() {
     return publicationSlug;
@@ -63,4 +65,3 @@ public class MediumPublicationID {
   }
 
 }
-

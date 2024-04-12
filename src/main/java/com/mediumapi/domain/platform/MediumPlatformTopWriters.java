@@ -42,9 +42,10 @@ public class MediumPlatformTopWriters {
 
   /**
    * Get topWriters
+   * 
    * @return topWriters
-  */
-  
+   */
+
   @JsonProperty("top_writers")
   public List<String> getTopWriters() {
     return topWriters;
@@ -55,4 +56,3 @@ public class MediumPlatformTopWriters {
   }
 
 }
-

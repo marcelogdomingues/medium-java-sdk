@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 /**
  * MediumArticleAssetsAssetsYoutubeInner
  */
@@ -34,9 +33,10 @@ public class MediumArticleAssetsAssetsYoutubeInner {
 
   /**
    * Get title
+   * 
    * @return title
-  */
-  
+   */
+
   @JsonProperty("title")
   public String getTitle() {
     return title;
@@ -53,9 +53,10 @@ public class MediumArticleAssetsAssetsYoutubeInner {
 
   /**
    * Get href
+   * 
    * @return href
-  */
-  
+   */
+
   @JsonProperty("href")
   public String getHref() {
     return href;
@@ -72,9 +73,10 @@ public class MediumArticleAssetsAssetsYoutubeInner {
 
   /**
    * Get description
+   * 
    * @return description
-  */
-  
+   */
+
   @JsonProperty("description")
   public String getDescription() {
     return description;
@@ -85,4 +87,3 @@ public class MediumArticleAssetsAssetsYoutubeInner {
   }
 
 }
-

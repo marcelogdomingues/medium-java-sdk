@@ -36,9 +36,10 @@ public class MediumArticleRecommended {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -63,9 +64,10 @@ public class MediumArticleRecommended {
 
   /**
    * Get recommendedArticles
+   * 
    * @return recommendedArticles
-  */
-  
+   */
+
   @JsonProperty("recommended_articles")
   public List<String> getRecommendedArticles() {
     return recommendedArticles;
@@ -76,4 +78,3 @@ public class MediumArticleRecommended {
   }
 
 }
-

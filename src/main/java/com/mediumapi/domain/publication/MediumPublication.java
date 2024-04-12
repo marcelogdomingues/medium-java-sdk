@@ -59,9 +59,10 @@ public class MediumPublication {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -78,9 +79,10 @@ public class MediumPublication {
 
   /**
    * Get name
+   * 
    * @return name
-  */
-  
+   */
+
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -97,9 +99,10 @@ public class MediumPublication {
 
   /**
    * Get tagline
+   * 
    * @return tagline
-  */
-  
+   */
+
   @JsonProperty("tagline")
   public String getTagline() {
     return tagline;
@@ -116,9 +119,10 @@ public class MediumPublication {
 
   /**
    * Get description
+   * 
    * @return description
-  */
-  
+   */
+
   @JsonProperty("description")
   public String getDescription() {
     return description;
@@ -143,9 +147,10 @@ public class MediumPublication {
 
   /**
    * Get tags
+   * 
    * @return tags
-  */
-  
+   */
+
   @JsonProperty("tags")
   public List<String> getTags() {
     return tags;
@@ -162,9 +167,10 @@ public class MediumPublication {
 
   /**
    * Get followers
+   * 
    * @return followers
-  */
-  
+   */
+
   @JsonProperty("followers")
   public Integer getFollowers() {
     return followers;
@@ -181,9 +187,10 @@ public class MediumPublication {
 
   /**
    * Get instagramUsername
+   * 
    * @return instagramUsername
-  */
-  
+   */
+
   @JsonProperty("instagram_username")
   public String getInstagramUsername() {
     return instagramUsername;
@@ -200,9 +207,10 @@ public class MediumPublication {
 
   /**
    * Get facebookPagename
+   * 
    * @return facebookPagename
-  */
-  
+   */
+
   @JsonProperty("facebook_pagename")
   public String getFacebookPagename() {
     return facebookPagename;
@@ -219,9 +227,10 @@ public class MediumPublication {
 
   /**
    * Get url
+   * 
    * @return url
-  */
-  
+   */
+
   @JsonProperty("url")
   public String getUrl() {
     return url;
@@ -238,9 +247,10 @@ public class MediumPublication {
 
   /**
    * Get slug
+   * 
    * @return slug
-  */
-  
+   */
+
   @JsonProperty("slug")
   public String getSlug() {
     return slug;
@@ -257,9 +267,10 @@ public class MediumPublication {
 
   /**
    * Get twitterUsername
+   * 
    * @return twitterUsername
-  */
-  
+   */
+
   @JsonProperty("twitter_username")
   public String getTwitterUsername() {
     return twitterUsername;
@@ -276,9 +287,10 @@ public class MediumPublication {
 
   /**
    * Get creator
+   * 
    * @return creator
-  */
-  
+   */
+
   @JsonProperty("creator")
   public String getCreator() {
     return creator;
@@ -303,9 +315,10 @@ public class MediumPublication {
 
   /**
    * Get editors
+   * 
    * @return editors
-  */
-  
+   */
+
   @JsonProperty("editors")
   public List<String> getEditors() {
     return editors;
@@ -316,4 +329,3 @@ public class MediumPublication {
   }
 
 }
-

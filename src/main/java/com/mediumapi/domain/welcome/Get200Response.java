@@ -41,9 +41,10 @@ public class Get200Response {
 
   /**
    * Full name of the API
+   * 
    * @return name
-  */
-  
+   */
+
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -60,9 +61,10 @@ public class Get200Response {
 
   /**
    * Full name of the API's developer
+   * 
    * @return developer
-  */
-  
+   */
+
   @JsonProperty("developer")
   public String getDeveloper() {
     return developer;
@@ -79,9 +81,10 @@ public class Get200Response {
 
   /**
    * Email ID of the developer
+   * 
    * @return email
-  */
-  
+   */
+
   @JsonProperty("email")
   public String getEmail() {
     return email;
@@ -98,9 +101,10 @@ public class Get200Response {
 
   /**
    * Link to the Medium API's website
+   * 
    * @return website
-  */
-  
+   */
+
   @JsonProperty("website")
   public String getWebsite() {
     return website;
@@ -117,9 +121,10 @@ public class Get200Response {
 
   /**
    * Link to the API's documentation
+   * 
    * @return documentation
-  */
-  
+   */
+
   @JsonProperty("documentation")
   public String getDocumentation() {
     return documentation;
@@ -136,9 +141,10 @@ public class Get200Response {
 
   /**
    * Twitter Profile URL
+   * 
    * @return twitter
-  */
-  
+   */
+
   @JsonProperty("twitter")
   public String getTwitter() {
     return twitter;
@@ -155,9 +161,10 @@ public class Get200Response {
 
   /**
    * LinkedIn Page URL
+   * 
    * @return linkedin
-  */
-  
+   */
+
   @JsonProperty("linkedin")
   public String getLinkedin() {
     return linkedin;
@@ -168,4 +175,3 @@ public class Get200Response {
   }
 
 }
-

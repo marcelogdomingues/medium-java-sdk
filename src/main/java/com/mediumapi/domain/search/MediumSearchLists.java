@@ -44,9 +44,10 @@ public class MediumSearchLists {
 
   /**
    * Get lists
+   * 
    * @return lists
-  */
-  
+   */
+
   @JsonProperty("lists")
   public List<String> getLists() {
     return lists;
@@ -63,9 +64,10 @@ public class MediumSearchLists {
 
   /**
    * Get searchQuery
+   * 
    * @return searchQuery
-  */
-  
+   */
+
   @JsonProperty("search_query")
   public String getSearchQuery() {
     return searchQuery;
@@ -76,4 +78,3 @@ public class MediumSearchLists {
   }
 
 }
-

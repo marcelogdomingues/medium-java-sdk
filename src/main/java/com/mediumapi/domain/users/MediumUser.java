@@ -13,7 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Returns the user related information such as *id, username, fullname, bio, top_writer_in, followers_count, following_count, publication_following_count, twitter_username, is_writer_program_enrolled, is_suspended, has_list, is_book_author, allow_notes, medium_member_at, image_url, logo_image_url, bg_image_url, tipping_link*.
+ * Returns the user related information such as *id, username, fullname, bio,
+ * top_writer_in, followers_count, following_count, publication_following_count,
+ * twitter_username, is_writer_program_enrolled, is_suspended, has_list,
+ * is_book_author, allow_notes, medium_member_at, image_url, logo_image_url,
+ * bg_image_url, tipping_link*.
  */
 
 @Getter
@@ -70,6 +74,7 @@ public class MediumUser {
 
   /**
    * Get id
+   * 
    * @return id
    */
 
@@ -89,6 +94,7 @@ public class MediumUser {
 
   /**
    * Get username
+   * 
    * @return username
    */
 
@@ -108,6 +114,7 @@ public class MediumUser {
 
   /**
    * Get fullname
+   * 
    * @return fullname
    */
 
@@ -127,6 +134,7 @@ public class MediumUser {
 
   /**
    * Get bio
+   * 
    * @return bio
    */
 
@@ -154,6 +162,7 @@ public class MediumUser {
 
   /**
    * Get topWriterIn
+   * 
    * @return topWriterIn
    */
 
@@ -173,6 +182,7 @@ public class MediumUser {
 
   /**
    * Get followersCount
+   * 
    * @return followersCount
    */
 
@@ -192,6 +202,7 @@ public class MediumUser {
 
   /**
    * Get followingCount
+   * 
    * @return followingCount
    */
 
@@ -211,6 +222,7 @@ public class MediumUser {
 
   /**
    * Get publicationFollowingCount
+   * 
    * @return publicationFollowingCount
    */
 
@@ -230,6 +242,7 @@ public class MediumUser {
 
   /**
    * Get twitterUsername
+   * 
    * @return twitterUsername
    */
 
@@ -249,6 +262,7 @@ public class MediumUser {
 
   /**
    * Get isWriterProgramEnrolled
+   * 
    * @return isWriterProgramEnrolled
    */
 
@@ -268,6 +282,7 @@ public class MediumUser {
 
   /**
    * Get isSuspended
+   * 
    * @return isSuspended
    */
 
@@ -287,6 +302,7 @@ public class MediumUser {
 
   /**
    * Get hasList
+   * 
    * @return hasList
    */
 
@@ -306,6 +322,7 @@ public class MediumUser {
 
   /**
    * Get isBookAuthor
+   * 
    * @return isBookAuthor
    */
 
@@ -325,6 +342,7 @@ public class MediumUser {
 
   /**
    * Get allowNotes
+   * 
    * @return allowNotes
    */
 
@@ -344,6 +362,7 @@ public class MediumUser {
 
   /**
    * Get mediumMemberAt
+   * 
    * @return mediumMemberAt
    */
 
@@ -363,6 +382,7 @@ public class MediumUser {
 
   /**
    * Get imageUrl
+   * 
    * @return imageUrl
    */
 
@@ -382,6 +402,7 @@ public class MediumUser {
 
   /**
    * Get logoImageUrl
+   * 
    * @return logoImageUrl
    */
 
@@ -401,6 +422,7 @@ public class MediumUser {
 
   /**
    * Get bgImageUrl
+   * 
    * @return bgImageUrl
    */
 
@@ -420,6 +442,7 @@ public class MediumUser {
 
   /**
    * Get tippingLink
+   * 
    * @return tippingLink
    */
 
@@ -433,4 +456,3 @@ public class MediumUser {
   }
 
 }
-

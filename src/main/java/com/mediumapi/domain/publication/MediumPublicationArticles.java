@@ -48,9 +48,10 @@ public class MediumPublicationArticles {
 
   /**
    * Get publicationArticles
+   * 
    * @return publicationArticles
-  */
-  
+   */
+
   @JsonProperty("publication_articles")
   public List<String> getPublicationArticles() {
     return publicationArticles;
@@ -67,9 +68,10 @@ public class MediumPublicationArticles {
 
   /**
    * Get publicationId
+   * 
    * @return publicationId
-  */
-  
+   */
+
   @JsonProperty("publication_id")
   public String getPublicationId() {
     return publicationId;
@@ -86,9 +88,10 @@ public class MediumPublicationArticles {
 
   /**
    * Get from
+   * 
    * @return from
-  */
-  
+   */
+
   @JsonProperty("from")
   public String getFrom() {
     return from;
@@ -105,9 +108,10 @@ public class MediumPublicationArticles {
 
   /**
    * Get to
+   * 
    * @return to
-  */
-  
+   */
+
   @JsonProperty("to")
   public String getTo() {
     return to;
@@ -118,4 +122,3 @@ public class MediumPublicationArticles {
   }
 
 }
-

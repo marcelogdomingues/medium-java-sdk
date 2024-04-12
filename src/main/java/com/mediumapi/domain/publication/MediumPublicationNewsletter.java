@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 /**
  * MediumPublicationNewsletter
  */
@@ -42,9 +41,10 @@ public class MediumPublicationNewsletter {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -61,9 +61,10 @@ public class MediumPublicationNewsletter {
 
   /**
    * Get name
+   * 
    * @return name
-  */
-  
+   */
+
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -80,9 +81,10 @@ public class MediumPublicationNewsletter {
 
   /**
    * Get description
+   * 
    * @return description
-  */
-  
+   */
+
   @JsonProperty("description")
   public String getDescription() {
     return description;
@@ -99,9 +101,10 @@ public class MediumPublicationNewsletter {
 
   /**
    * Get subscribers
+   * 
    * @return subscribers
-  */
-  
+   */
+
   @JsonProperty("subscribers")
   public Integer getSubscribers() {
     return subscribers;
@@ -118,9 +121,10 @@ public class MediumPublicationNewsletter {
 
   /**
    * Get slug
+   * 
    * @return slug
-  */
-  
+   */
+
   @JsonProperty("slug")
   public String getSlug() {
     return slug;
@@ -137,9 +141,10 @@ public class MediumPublicationNewsletter {
 
   /**
    * Get creatorId
+   * 
    * @return creatorId
-  */
-  
+   */
+
   @JsonProperty("creator_id")
   public String getCreatorId() {
     return creatorId;
@@ -156,9 +161,10 @@ public class MediumPublicationNewsletter {
 
   /**
    * Get image
+   * 
    * @return image
-  */
-  
+   */
+
   @JsonProperty("image")
   public String getImage() {
     return image;
@@ -169,4 +175,3 @@ public class MediumPublicationNewsletter {
   }
 
 }
-

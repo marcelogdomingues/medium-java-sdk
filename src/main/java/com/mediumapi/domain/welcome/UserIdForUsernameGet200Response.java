@@ -29,9 +29,10 @@ public class UserIdForUsernameGet200Response {
 
   /**
    * Unique hash id of the user.
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -42,4 +43,3 @@ public class UserIdForUsernameGet200Response {
   }
 
 }
-

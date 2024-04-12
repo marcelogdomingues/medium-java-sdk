@@ -48,9 +48,10 @@ public class MediumPlatformTopfeeds {
 
   /**
    * Get topfeeds
+   * 
    * @return topfeeds
-  */
-  
+   */
+
   @JsonProperty("topfeeds")
   public List<String> getTopfeeds() {
     return topfeeds;
@@ -67,9 +68,10 @@ public class MediumPlatformTopfeeds {
 
   /**
    * Get count
+   * 
    * @return count
-  */
-  
+   */
+
   @JsonProperty("count")
   public Integer getCount() {
     return count;
@@ -86,9 +88,10 @@ public class MediumPlatformTopfeeds {
 
   /**
    * Get tag
+   * 
    * @return tag
-  */
-  
+   */
+
   @JsonProperty("tag")
   public String getTag() {
     return tag;
@@ -105,9 +108,10 @@ public class MediumPlatformTopfeeds {
 
   /**
    * Get mode
+   * 
    * @return mode
-  */
-  
+   */
+
   @JsonProperty("mode")
   public String getMode() {
     return mode;
@@ -118,4 +122,3 @@ public class MediumPlatformTopfeeds {
   }
 
 }
-

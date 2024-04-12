@@ -38,9 +38,10 @@ public class MediumListArticles {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -65,9 +66,10 @@ public class MediumListArticles {
 
   /**
    * Get listArticles
+   * 
    * @return listArticles
-  */
-  
+   */
+
   @JsonProperty("list_articles")
   public List<String> getListArticles() {
     return listArticles;
@@ -84,9 +86,10 @@ public class MediumListArticles {
 
   /**
    * Get count
+   * 
    * @return count
-  */
-  
+   */
+
   @JsonProperty("count")
   public Integer getCount() {
     return count;
@@ -97,4 +100,3 @@ public class MediumListArticles {
   }
 
 }
-

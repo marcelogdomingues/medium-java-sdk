@@ -23,323 +23,227 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface UserApi {
 
-    default UserApiClient getDelegate() {
-        return new UserApiClient() {};
-    }
+  default UserApiClient getDelegate() {
+    return new UserApiClient() {
+    };
+  }
 
-    /**
-     * GET /user/id_for/{username} : Get User ID
-     * Returns the unique &#x60;user_id&#x60; for the given &#x60;username&#x60;.  **Note:** You can find the &#x60;username&#x60; from the user&#39;s/author&#39;s profile page URL.  - **username**.medium.com - medium.com/@**username** 
-     *
-     * @param username It&#39;s a unique string chosen by every single Medium user. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "userIdForUsernameGet",
-        summary = "Get User ID",
-        description = "Returns the unique `user_id` for the given `username`.  **Note:** You can find the `username` from the user's/author's profile page URL.  - **username**.medium.com - medium.com/@**username** ",
-        tags = { "User" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = UserIdForUsernameGet200Response.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/user/id_for/{username}",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<UserIdForUsernameGet200Response> userIdForUsernameGet(
-        @Parameter(name = "username", description = "It's a unique string chosen by every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("username") String username
-    ) {
-        return getDelegate().userIdForUsernameGet(username);
-    }
+  /**
+   * GET /user/id_for/{username} : Get User ID Returns the unique
+   * &#x60;user_id&#x60; for the given &#x60;username&#x60;. **Note:** You can
+   * find the &#x60;username&#x60; from the user&#39;s/author&#39;s profile page
+   * URL. - **username**.medium.com - medium.com/@**username**
+   *
+   * @param username
+   *            It&#39;s a unique string chosen by every single Medium user.
+   *            (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "userIdForUsernameGet", summary = "Get User ID", description = "Returns the unique `user_id` for the given `username`.  **Note:** You can find the `username` from the user's/author's profile page URL.  - **username**.medium.com - medium.com/@**username** ", tags = {
+      "User"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = UserIdForUsernameGet200Response.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/user/id_for/{username}", produces = {"application/json"})
 
+  default ResponseEntity<UserIdForUsernameGet200Response> userIdForUsernameGet(
+      @Parameter(name = "username", description = "It's a unique string chosen by every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("username") String username) {
+    return getDelegate().userIdForUsernameGet(username);
+  }
 
-    /**
-     * GET /user/{user_id}/articles : Get User&#39;s Articles
-     * Returns the list of articles (&#x60;article_ids&#x60;) written by the given user. 
-     *
-     * @param userId Unique hash id assigned to every single Medium user. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "userUserIdArticlesGet",
-        summary = "Get User's Articles",
-        description = "Returns the list of articles (`article_ids`) written by the given user. ",
-        tags = { "User" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserArticles.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/user/{user_id}/articles",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumUserArticles> userUserIdArticlesGet(
-        @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId
-    ) {
-        return getDelegate().userUserIdArticlesGet(userId);
-    }
+  /**
+   * GET /user/{user_id}/articles : Get User&#39;s Articles Returns the list of
+   * articles (&#x60;article_ids&#x60;) written by the given user.
+   *
+   * @param userId
+   *            Unique hash id assigned to every single Medium user. (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "userUserIdArticlesGet", summary = "Get User's Articles", description = "Returns the list of articles (`article_ids`) written by the given user. ", tags = {
+      "User"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserArticles.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/user/{user_id}/articles", produces = {"application/json"})
 
+  default ResponseEntity<MediumUserArticles> userUserIdArticlesGet(
+      @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId) {
+    return getDelegate().userUserIdArticlesGet(userId);
+  }
 
-    /**
-     * GET /user/{user_id}/followers : Get User Followers
-     * Returns the list of &#x60;user_ids&#x60; of the user&#39;s followers.  **Note:** When you get the response from the API, it will include an attribute called &#x60;next&#x60;.  You can use this next attribute as query string parameter (&#x60;after&#x60;) when you make your next API request.  This way, you can get the followers that come after the one you&#39;re currently looking at. 
-     *
-     * @param userId Unique hash id assigned to every single Medium user. (required)
-     * @param count To limit the number of results. (count &lt;&#x3D; 25) (optional)
-     * @param after To get the results after a particular follower&#39;s user id. (optional)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "userUserIdFollowersGet",
-        summary = "Get User Followers",
-        description = "Returns the list of `user_ids` of the user's followers.  **Note:** When you get the response from the API, it will include an attribute called `next`.  You can use this next attribute as query string parameter (`after`) when you make your next API request.  This way, you can get the followers that come after the one you're currently looking at. ",
-        tags = { "User" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserFollowers.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/user/{user_id}/followers",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumUserFollowers> userUserIdFollowersGet(
-        @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId,
-        @Parameter(name = "count", description = "To limit the number of results. (count <= 25)", in = ParameterIn.QUERY) @Valid @RequestParam(value = "count", required = false) Integer count,
-        @Parameter(name = "after", description = "To get the results after a particular follower's user id.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "after", required = false) String after
-    ) {
-        return getDelegate().userUserIdFollowersGet(userId, count, after);
-    }
+  /**
+   * GET /user/{user_id}/followers : Get User Followers Returns the list of
+   * &#x60;user_ids&#x60; of the user&#39;s followers. **Note:** When you get the
+   * response from the API, it will include an attribute called &#x60;next&#x60;.
+   * You can use this next attribute as query string parameter (&#x60;after&#x60;)
+   * when you make your next API request. This way, you can get the followers that
+   * come after the one you&#39;re currently looking at.
+   *
+   * @param userId
+   *            Unique hash id assigned to every single Medium user. (required)
+   * @param count
+   *            To limit the number of results. (count &lt;&#x3D; 25) (optional)
+   * @param after
+   *            To get the results after a particular follower&#39;s user id.
+   *            (optional)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "userUserIdFollowersGet", summary = "Get User Followers", description = "Returns the list of `user_ids` of the user's followers.  **Note:** When you get the response from the API, it will include an attribute called `next`.  You can use this next attribute as query string parameter (`after`) when you make your next API request.  This way, you can get the followers that come after the one you're currently looking at. ", tags = {
+      "User"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserFollowers.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/user/{user_id}/followers", produces = {"application/json"})
 
+  default ResponseEntity<MediumUserFollowers> userUserIdFollowersGet(
+      @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId,
+      @Parameter(name = "count", description = "To limit the number of results. (count <= 25)", in = ParameterIn.QUERY) @Valid @RequestParam(value = "count", required = false) Integer count,
+      @Parameter(name = "after", description = "To get the results after a particular follower's user id.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "after", required = false) String after) {
+    return getDelegate().userUserIdFollowersGet(userId, count, after);
+  }
 
-    /**
-     * GET /user/{user_id}/following : Get User Following
-     * Returns a list of users (&#x60;user_ids&#x60;) that the given user is following.  Use the &#x60;count&#x60; query parameter (_optional_) to limit the number of results. (count &lt;&#x3D; 1500)  **Note:** This list does not contain the &#x60;publication_ids&#x60; of the publications that the user is following. To get those, please use _Get User Publication Following_ endpoint (&#x60;/user/{user_id}/publication_following&#x60;). 
-     *
-     * @param userId Unique hash id assigned to every single Medium user. (required)
-     * @param count To limit the number of results. (count &lt; 1500) (optional)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "userUserIdFollowingGet",
-        summary = "Get User Following",
-        description = "Returns a list of users (`user_ids`) that the given user is following.  Use the `count` query parameter (_optional_) to limit the number of results. (count <= 1500)  **Note:** This list does not contain the `publication_ids` of the publications that the user is following. To get those, please use _Get User Publication Following_ endpoint (`/user/{user_id}/publication_following`). ",
-        tags = { "User" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserFollowing.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/user/{user_id}/following",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumUserFollowing> userUserIdFollowingGet(
-        @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId,
-        @Parameter(name = "count", description = "To limit the number of results. (count < 1500)", in = ParameterIn.QUERY) @Valid @RequestParam(value = "count", required = false) Integer count
-    ) {
-        return getDelegate().userUserIdFollowingGet(userId, count);
-    }
+  /**
+   * GET /user/{user_id}/following : Get User Following Returns a list of users
+   * (&#x60;user_ids&#x60;) that the given user is following. Use the
+   * &#x60;count&#x60; query parameter (_optional_) to limit the number of
+   * results. (count &lt;&#x3D; 1500) **Note:** This list does not contain the
+   * &#x60;publication_ids&#x60; of the publications that the user is following.
+   * To get those, please use _Get User Publication Following_ endpoint
+   * (&#x60;/user/{user_id}/publication_following&#x60;).
+   *
+   * @param userId
+   *            Unique hash id assigned to every single Medium user. (required)
+   * @param count
+   *            To limit the number of results. (count &lt; 1500) (optional)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "userUserIdFollowingGet", summary = "Get User Following", description = "Returns a list of users (`user_ids`) that the given user is following.  Use the `count` query parameter (_optional_) to limit the number of results. (count <= 1500)  **Note:** This list does not contain the `publication_ids` of the publications that the user is following. To get those, please use _Get User Publication Following_ endpoint (`/user/{user_id}/publication_following`). ", tags = {
+      "User"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserFollowing.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/user/{user_id}/following", produces = {"application/json"})
 
+  default ResponseEntity<MediumUserFollowing> userUserIdFollowingGet(
+      @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId,
+      @Parameter(name = "count", description = "To limit the number of results. (count < 1500)", in = ParameterIn.QUERY) @Valid @RequestParam(value = "count", required = false) Integer count) {
+    return getDelegate().userUserIdFollowingGet(userId, count);
+  }
 
-    /**
-     * GET /user/{user_id} : Get User Info
-     * Returns user-related information such as their - Username - Full name - Bio - Followers count - Following count - Publication Following count - Twitter Username - Profile Image URL - Background Image URL - Logo Image URL - Tipping Link - List of tags in which the user is Top Writer - When did the user become a Medium Member (conditional) - Whether the user has Lists (boolean) - Whether the user is a Medium-verified book author (boolean) - Whether the user is enrolled in Medium Partner Program (boolean) - Whether the user has allowed notes on their articles (boolean) - Whether the user is suspended or not (boolean)  **Note:** If you don&#39;t know the &#x60;user_id&#x60;, you can get it from the _Get User ID_ endpoint (&#x60;/user/id_for/{username}&#x60;). 
-     *
-     * @param userId It&#39;s a unique hash id assigned to every single Medium user. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "userUserIdGet",
-        summary = "Get User Info",
-        description = "Returns user-related information such as their - Username - Full name - Bio - Followers count - Following count - Publication Following count - Twitter Username - Profile Image URL - Background Image URL - Logo Image URL - Tipping Link - List of tags in which the user is Top Writer - When did the user become a Medium Member (conditional) - Whether the user has Lists (boolean) - Whether the user is a Medium-verified book author (boolean) - Whether the user is enrolled in Medium Partner Program (boolean) - Whether the user has allowed notes on their articles (boolean) - Whether the user is suspended or not (boolean)  **Note:** If you don't know the `user_id`, you can get it from the _Get User ID_ endpoint (`/user/id_for/{username}`). ",
-        tags = { "User" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUser.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/user/{user_id}",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumUser> userUserIdGet(
-        @Parameter(name = "user_id", description = "It's a unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId
-    ) {
-        return getDelegate().userUserIdGet(userId);
-    }
+  /**
+   * GET /user/{user_id} : Get User Info Returns user-related information such as
+   * their - Username - Full name - Bio - Followers count - Following count -
+   * Publication Following count - Twitter Username - Profile Image URL -
+   * Background Image URL - Logo Image URL - Tipping Link - List of tags in which
+   * the user is Top Writer - When did the user become a Medium Member
+   * (conditional) - Whether the user has Lists (boolean) - Whether the user is a
+   * Medium-verified book author (boolean) - Whether the user is enrolled in
+   * Medium Partner Program (boolean) - Whether the user has allowed notes on
+   * their articles (boolean) - Whether the user is suspended or not (boolean)
+   * **Note:** If you don&#39;t know the &#x60;user_id&#x60;, you can get it from
+   * the _Get User ID_ endpoint (&#x60;/user/id_for/{username}&#x60;).
+   *
+   * @param userId
+   *            It&#39;s a unique hash id assigned to every single Medium user.
+   *            (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "userUserIdGet", summary = "Get User Info", description = "Returns user-related information such as their - Username - Full name - Bio - Followers count - Following count - Publication Following count - Twitter Username - Profile Image URL - Background Image URL - Logo Image URL - Tipping Link - List of tags in which the user is Top Writer - When did the user become a Medium Member (conditional) - Whether the user has Lists (boolean) - Whether the user is a Medium-verified book author (boolean) - Whether the user is enrolled in Medium Partner Program (boolean) - Whether the user has allowed notes on their articles (boolean) - Whether the user is suspended or not (boolean)  **Note:** If you don't know the `user_id`, you can get it from the _Get User ID_ endpoint (`/user/id_for/{username}`). ", tags = {
+      "User"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUser.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/user/{user_id}", produces = {"application/json"})
 
+  default ResponseEntity<MediumUser> userUserIdGet(
+      @Parameter(name = "user_id", description = "It's a unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId) {
+    return getDelegate().userUserIdGet(userId);
+  }
 
-    /**
-     * GET /user/{user_id}/interests : Get User&#39;s Interests
-     * Returns a list of tags that the given user follows. 
-     *
-     * @param userId Unique hash id assigned to every single Medium user. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "userUserIdInterestsGet",
-        summary = "Get User's Interests",
-        description = "Returns a list of tags that the given user follows. ",
-        tags = { "User" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserInterests.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/user/{user_id}/interests",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumUserInterests> userUserIdInterestsGet(
-        @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId
-    ) {
-        return getDelegate().userUserIdInterestsGet(userId);
-    }
+  /**
+   * GET /user/{user_id}/interests : Get User&#39;s Interests Returns a list of
+   * tags that the given user follows.
+   *
+   * @param userId
+   *            Unique hash id assigned to every single Medium user. (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "userUserIdInterestsGet", summary = "Get User's Interests", description = "Returns a list of tags that the given user follows. ", tags = {
+      "User"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserInterests.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/user/{user_id}/interests", produces = {"application/json"})
 
+  default ResponseEntity<MediumUserInterests> userUserIdInterestsGet(
+      @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId) {
+    return getDelegate().userUserIdInterestsGet(userId);
+  }
 
-    /**
-     * GET /user/{user_id}/lists : Get User&#39;s Lists
-     * Returns an array of &#x60;list_ids&#x60; created by the user.  **Note:** You can check whether the use has created lists or not beforehand. Check the  &#x60;has_list&#x60; attribute in the \&quot;Article Info\&quot; endpoint. 
-     *
-     * @param userId Unique hash id assigned to every single Medium user. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "userUserIdListsGet",
-        summary = "Get User's Lists",
-        description = "Returns an array of `list_ids` created by the user.  **Note:** You can check whether the use has created lists or not beforehand. Check the  `has_list` attribute in the \"Article Info\" endpoint. ",
-        tags = { "User" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserLists.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/user/{user_id}/lists",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumUserLists> userUserIdListsGet(
-        @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId
-    ) {
-        return getDelegate().userUserIdListsGet(userId);
-    }
+  /**
+   * GET /user/{user_id}/lists : Get User&#39;s Lists Returns an array of
+   * &#x60;list_ids&#x60; created by the user. **Note:** You can check whether the
+   * use has created lists or not beforehand. Check the &#x60;has_list&#x60;
+   * attribute in the \&quot;Article Info\&quot; endpoint.
+   *
+   * @param userId
+   *            Unique hash id assigned to every single Medium user. (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "userUserIdListsGet", summary = "Get User's Lists", description = "Returns an array of `list_ids` created by the user.  **Note:** You can check whether the use has created lists or not beforehand. Check the  `has_list` attribute in the \"Article Info\" endpoint. ", tags = {
+      "User"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserLists.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/user/{user_id}/lists", produces = {"application/json"})
 
+  default ResponseEntity<MediumUserLists> userUserIdListsGet(
+      @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId) {
+    return getDelegate().userUserIdListsGet(userId);
+  }
 
-    /**
-     * GET /user/{user_id}/publication_following : Get User Publication Following
-     * Returns a list of publications (&#x60;publication_ids&#x60;) that the given user is following. 
-     *
-     * @param userId Unique hash id assigned to every single Medium user. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "userUserIdPublicationFollowingGet",
-        summary = "Get User Publication Following",
-        description = "Returns a list of publications (`publication_ids`) that the given user is following. ",
-        tags = { "User" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserPublicationFollowing.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/user/{user_id}/publication_following",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumUserPublicationFollowing> userUserIdPublicationFollowingGet(
-        @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId
-    ) {
-        return getDelegate().userUserIdPublicationFollowingGet(userId);
-    }
+  /**
+   * GET /user/{user_id}/publication_following : Get User Publication Following
+   * Returns a list of publications (&#x60;publication_ids&#x60;) that the given
+   * user is following.
+   *
+   * @param userId
+   *            Unique hash id assigned to every single Medium user. (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "userUserIdPublicationFollowingGet", summary = "Get User Publication Following", description = "Returns a list of publications (`publication_ids`) that the given user is following. ", tags = {
+      "User"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserPublicationFollowing.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/user/{user_id}/publication_following", produces = {
+      "application/json"})
 
+  default ResponseEntity<MediumUserPublicationFollowing> userUserIdPublicationFollowingGet(
+      @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId) {
+    return getDelegate().userUserIdPublicationFollowingGet(userId);
+  }
 
-    /**
-     * GET /user/{user_id}/publications : Get User&#39;s Publications
-     * Returns 2 lists of &#x60;publication_ids&#x60; where the given user is either an admin (creator/editor) or a contributing writer. 
-     *
-     * @param userId Unique hash id assigned to every single Medium user. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "userUserIdPublicationsGet",
-        summary = "Get User's Publications",
-        description = "Returns 2 lists of `publication_ids` where the given user is either an admin (creator/editor) or a contributing writer. ",
-        tags = { "User" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserPublications.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/user/{user_id}/publications",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumUserPublications> userUserIdPublicationsGet(
-        @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId
-    ) {
-        return getDelegate().userUserIdPublicationsGet(userId);
-    }
+  /**
+   * GET /user/{user_id}/publications : Get User&#39;s Publications Returns 2
+   * lists of &#x60;publication_ids&#x60; where the given user is either an admin
+   * (creator/editor) or a contributing writer.
+   *
+   * @param userId
+   *            Unique hash id assigned to every single Medium user. (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "userUserIdPublicationsGet", summary = "Get User's Publications", description = "Returns 2 lists of `publication_ids` where the given user is either an admin (creator/editor) or a contributing writer. ", tags = {
+      "User"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserPublications.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/user/{user_id}/publications", produces = {"application/json"})
 
+  default ResponseEntity<MediumUserPublications> userUserIdPublicationsGet(
+      @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId) {
+    return getDelegate().userUserIdPublicationsGet(userId);
+  }
 
-    /**
-     * GET /user/{user_id}/top_articles : Get User&#39;s Top Articles
-     * Returns a list of &#x60;article_ids&#x60; of the top 10 articles on the user&#39;s profile, for a given &#x60;user_id&#x60;. 
-     *
-     * @param userId Unique hash id assigned to every single Medium user. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "userUserIdTopArticlesGet",
-        summary = "Get User's Top Articles",
-        description = "Returns a list of `article_ids` of the top 10 articles on the user's profile, for a given `user_id`. ",
-        tags = { "User" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserTopArticles.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/user/{user_id}/top_articles",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumUserTopArticles> userUserIdTopArticlesGet(
-        @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId
-    ) {
-        return getDelegate().userUserIdTopArticlesGet(userId);
-    }
+  /**
+   * GET /user/{user_id}/top_articles : Get User&#39;s Top Articles Returns a list
+   * of &#x60;article_ids&#x60; of the top 10 articles on the user&#39;s profile,
+   * for a given &#x60;user_id&#x60;.
+   *
+   * @param userId
+   *            Unique hash id assigned to every single Medium user. (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "userUserIdTopArticlesGet", summary = "Get User's Top Articles", description = "Returns a list of `article_ids` of the top 10 articles on the user's profile, for a given `user_id`. ", tags = {
+      "User"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumUserTopArticles.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/user/{user_id}/top_articles", produces = {"application/json"})
+
+  default ResponseEntity<MediumUserTopArticles> userUserIdTopArticlesGet(
+      @Parameter(name = "user_id", description = "Unique hash id assigned to every single Medium user.", required = true, in = ParameterIn.PATH) @PathVariable("user_id") String userId) {
+    return getDelegate().userUserIdTopArticlesGet(userId);
+  }
 
 }

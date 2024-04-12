@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Returns the list of &#x60;article_ids&#x60; of the top 10 articles, posted by the user.
+ * Returns the list of &#x60;article_ids&#x60; of the top 10 articles, posted by
+ * the user.
  */
 
 @Getter
@@ -36,6 +37,7 @@ public class MediumUserTopArticles {
 
   /**
    * Get id
+   * 
    * @return id
    */
 
@@ -63,6 +65,7 @@ public class MediumUserTopArticles {
 
   /**
    * Get topArticles
+   * 
    * @return topArticles
    */
 

@@ -30,290 +30,208 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface ArticleApi {
 
-    default ArticleApiClient getDelegate() {
-        return new ArticleApiClient() {};
-    }
+  default ArticleApiClient getDelegate() {
+    return new ArticleApiClient() {
+    };
+  }
 
-    /**
-     * GET /article/{article_id}/assets : Get Article Assets
-     * Returns a list of URLs for the assets present in the Medium Article.  These assets may include images, embedded YouTube videos, Github Gists, Hyperlinks (anchors), Links to other Medium Articles, etc… 
-     *
-     * @param articleId It&#39;s a unique hash id assigned to every Medium Article. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "articleArticleIdAssetsGet",
-        summary = "Get Article Assets",
-        description = "Returns a list of URLs for the assets present in the Medium Article.  These assets may include images, embedded YouTube videos, Github Gists, Hyperlinks (anchors), Links to other Medium Articles, etc… ",
-        tags = { "Article" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleAssets.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/article/{article_id}/assets",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumArticleAssets> articleArticleIdAssetsGet(
-        @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId
-    ) {
-        return getDelegate().articleArticleIdAssetsGet(articleId);
-    }
+  /**
+   * GET /article/{article_id}/assets : Get Article Assets Returns a list of URLs
+   * for the assets present in the Medium Article. These assets may include
+   * images, embedded YouTube videos, Github Gists, Hyperlinks (anchors), Links to
+   * other Medium Articles, etc…
+   *
+   * @param articleId
+   *            It&#39;s a unique hash id assigned to every Medium Article.
+   *            (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "articleArticleIdAssetsGet", summary = "Get Article Assets", description = "Returns a list of URLs for the assets present in the Medium Article.  These assets may include images, embedded YouTube videos, Github Gists, Hyperlinks (anchors), Links to other Medium Articles, etc… ", tags = {
+      "Article"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleAssets.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/article/{article_id}/assets", produces = {"application/json"})
 
+  default ResponseEntity<MediumArticleAssets> articleArticleIdAssetsGet(
+      @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId) {
+    return getDelegate().articleArticleIdAssetsGet(articleId);
+  }
 
-    /**
-     * GET /article/{article_id}/content : Get Article&#39;s Content
-     * Returns the content of an article for the given &#x60;article_id&#x60;. 
-     *
-     * @param articleId It&#39;s a unique hash id assigned to every Medium Article. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "articleArticleIdContentGet",
-        summary = "Get Article's Content",
-        description = "Returns the content of an article for the given `article_id`. ",
-        tags = { "Article" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleContent.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/article/{article_id}/content",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumArticleContent> articleArticleIdContentGet(
-        @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId
-    ) {
-        return getDelegate().articleArticleIdContentGet(articleId);
-    }
+  /**
+   * GET /article/{article_id}/content : Get Article&#39;s Content Returns the
+   * content of an article for the given &#x60;article_id&#x60;.
+   *
+   * @param articleId
+   *            It&#39;s a unique hash id assigned to every Medium Article.
+   *            (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "articleArticleIdContentGet", summary = "Get Article's Content", description = "Returns the content of an article for the given `article_id`. ", tags = {
+      "Article"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleContent.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/article/{article_id}/content", produces = {
+      "application/json"})
 
+  default ResponseEntity<MediumArticleContent> articleArticleIdContentGet(
+      @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId) {
+    return getDelegate().articleArticleIdContentGet(articleId);
+  }
 
-    /**
-     * GET /article/{article_id}/fans : Get Article Fans
-     * Returns a list of &#x60;user_ids&#x60; of the people who clapped on the article (a.k.a &#x60;voters&#x60;). 
-     *
-     * @param articleId It&#39;s a unique hash id assigned to every Medium Article. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "articleArticleIdFansGet",
-        summary = "Get Article Fans",
-        description = "Returns a list of `user_ids` of the people who clapped on the article (a.k.a `voters`). ",
-        tags = { "Article" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleFans.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/article/{article_id}/fans",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumArticleFans> articleArticleIdFansGet(
-        @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId
-    ) {
-        return getDelegate().articleArticleIdFansGet(articleId);
-    }
+  /**
+   * GET /article/{article_id}/fans : Get Article Fans Returns a list of
+   * &#x60;user_ids&#x60; of the people who clapped on the article (a.k.a
+   * &#x60;voters&#x60;).
+   *
+   * @param articleId
+   *            It&#39;s a unique hash id assigned to every Medium Article.
+   *            (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "articleArticleIdFansGet", summary = "Get Article Fans", description = "Returns a list of `user_ids` of the people who clapped on the article (a.k.a `voters`). ", tags = {
+      "Article"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleFans.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/article/{article_id}/fans", produces = {"application/json"})
 
+  default ResponseEntity<MediumArticleFans> articleArticleIdFansGet(
+      @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId) {
+    return getDelegate().articleArticleIdFansGet(articleId);
+  }
 
-    /**
-     * GET /article/{article_id} : Get Article Info
-     * Returns article-related information such as  - Title - Subtitle - Author (ID) - Tags - Topics (assigned by Medium) - Publication (ID) - Published date and time - Last Modified date and time - Clap Count - Voter Count - Word Count - Response Count - Reading Time - Language - Unique Slug - URL - Image URL (Cover image) - Top Highlight - Whether the article is in a series or not (boolean) - Whether the article is a shortform or not (boolean) - Whether the article is locked or not (boolean) 
-     *
-     * @param articleId It&#39;s a unique hash id assigned to every Medium Article. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "articleArticleIdGet",
-        summary = "Get Article Info",
-        description = "Returns article-related information such as  - Title - Subtitle - Author (ID) - Tags - Topics (assigned by Medium) - Publication (ID) - Published date and time - Last Modified date and time - Clap Count - Voter Count - Word Count - Response Count - Reading Time - Language - Unique Slug - URL - Image URL (Cover image) - Top Highlight - Whether the article is in a series or not (boolean) - Whether the article is a shortform or not (boolean) - Whether the article is locked or not (boolean) ",
-        tags = { "Article" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticle.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/article/{article_id}",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumArticle> articleArticleIdGet(
-        @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId
-    ) {
-        return getDelegate().articleArticleIdGet(articleId);
-    }
+  /**
+   * GET /article/{article_id} : Get Article Info Returns article-related
+   * information such as - Title - Subtitle - Author (ID) - Tags - Topics
+   * (assigned by Medium) - Publication (ID) - Published date and time - Last
+   * Modified date and time - Clap Count - Voter Count - Word Count - Response
+   * Count - Reading Time - Language - Unique Slug - URL - Image URL (Cover image)
+   * - Top Highlight - Whether the article is in a series or not (boolean) -
+   * Whether the article is a shortform or not (boolean) - Whether the article is
+   * locked or not (boolean)
+   *
+   * @param articleId
+   *            It&#39;s a unique hash id assigned to every Medium Article.
+   *            (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "articleArticleIdGet", summary = "Get Article Info", description = "Returns article-related information such as  - Title - Subtitle - Author (ID) - Tags - Topics (assigned by Medium) - Publication (ID) - Published date and time - Last Modified date and time - Clap Count - Voter Count - Word Count - Response Count - Reading Time - Language - Unique Slug - URL - Image URL (Cover image) - Top Highlight - Whether the article is in a series or not (boolean) - Whether the article is a shortform or not (boolean) - Whether the article is locked or not (boolean) ", tags = {
+      "Article"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticle.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/article/{article_id}", produces = {"application/json"})
 
+  default ResponseEntity<MediumArticle> articleArticleIdGet(
+      @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId) {
+    return getDelegate().articleArticleIdGet(articleId);
+  }
 
-    /**
-     * GET /article/{article_id}/html : Get Article&#39;s HTML
-     * Returns the **plain HTML** of a Medium Article, for the given &#x60;article_id&#x60;.  **Note:** This plain HTML output can be stylized as per your own custom branding. For the sample CSS, visit: \&quot;https://mediumapi.com/styles/dark.css\&quot; 
-     *
-     * @param articleId It&#39;s a unique hash id assigned to every Medium Article. (required)
-     * @param fullpage If &#39;true&#39;, returns full HTML page with head, body, title and meta tags. Else, returns HTML inside body only. (optional)
-     * @param styleFile Name or link to a CSS file to be included in the HTML. It works when &#x60;fullpage&#x60; is true. (optional)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "articleArticleIdHtmlGet",
-        summary = "Get Article's HTML",
-        description = "Returns the **plain HTML** of a Medium Article, for the given `article_id`.  **Note:** This plain HTML output can be stylized as per your own custom branding. For the sample CSS, visit: \"https://mediumapi.com/styles/dark.css\" ",
-        tags = { "Article" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleHTML.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/article/{article_id}/html",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumArticleHTML> articleArticleIdHtmlGet(
-        @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId,
-        @Parameter(name = "fullpage", description = "If 'true', returns full HTML page with head, body, title and meta tags. Else, returns HTML inside body only.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "fullpage", required = false) Boolean fullpage,
-        @Parameter(name = "style_file", description = "Name or link to a CSS file to be included in the HTML. It works when `fullpage` is true.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "style_file", required = false) String styleFile
-    ) {
-        return getDelegate().articleArticleIdHtmlGet(articleId, fullpage, styleFile);
-    }
+  /**
+   * GET /article/{article_id}/html : Get Article&#39;s HTML Returns the **plain
+   * HTML** of a Medium Article, for the given &#x60;article_id&#x60;. **Note:**
+   * This plain HTML output can be stylized as per your own custom branding. For
+   * the sample CSS, visit: \&quot;https://mediumapi.com/styles/dark.css\&quot;
+   *
+   * @param articleId
+   *            It&#39;s a unique hash id assigned to every Medium Article.
+   *            (required)
+   * @param fullpage
+   *            If &#39;true&#39;, returns full HTML page with head, body, title
+   *            and meta tags. Else, returns HTML inside body only. (optional)
+   * @param styleFile
+   *            Name or link to a CSS file to be included in the HTML. It works
+   *            when &#x60;fullpage&#x60; is true. (optional)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "articleArticleIdHtmlGet", summary = "Get Article's HTML", description = "Returns the **plain HTML** of a Medium Article, for the given `article_id`.  **Note:** This plain HTML output can be stylized as per your own custom branding. For the sample CSS, visit: \"https://mediumapi.com/styles/dark.css\" ", tags = {
+      "Article"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleHTML.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/article/{article_id}/html", produces = {"application/json"})
 
+  default ResponseEntity<MediumArticleHTML> articleArticleIdHtmlGet(
+      @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId,
+      @Parameter(name = "fullpage", description = "If 'true', returns full HTML page with head, body, title and meta tags. Else, returns HTML inside body only.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "fullpage", required = false) Boolean fullpage,
+      @Parameter(name = "style_file", description = "Name or link to a CSS file to be included in the HTML. It works when `fullpage` is true.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "style_file", required = false) String styleFile) {
+    return getDelegate().articleArticleIdHtmlGet(articleId, fullpage, styleFile);
+  }
 
-    /**
-     * GET /article/{article_id}/markdown : Get Article&#39;s Markdown
-     * Returns the markdown of a Medium Article/Story, for the given &#x60;article_id&#x60; 
-     *
-     * @param articleId It&#39;s a unique hash id assigned to every Medium Article. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "articleArticleIdMarkdownGet",
-        summary = "Get Article's Markdown",
-        description = "Returns the markdown of a Medium Article/Story, for the given `article_id` ",
-        tags = { "Article" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleMarkdown.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/article/{article_id}/markdown",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumArticleMarkdown> articleArticleIdMarkdownGet(
-        @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId
-    ) {
-        return getDelegate().articleArticleIdMarkdownGet(articleId);
-    }
+  /**
+   * GET /article/{article_id}/markdown : Get Article&#39;s Markdown Returns the
+   * markdown of a Medium Article/Story, for the given &#x60;article_id&#x60;
+   *
+   * @param articleId
+   *            It&#39;s a unique hash id assigned to every Medium Article.
+   *            (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "articleArticleIdMarkdownGet", summary = "Get Article's Markdown", description = "Returns the markdown of a Medium Article/Story, for the given `article_id` ", tags = {
+      "Article"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleMarkdown.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/article/{article_id}/markdown", produces = {
+      "application/json"})
 
+  default ResponseEntity<MediumArticleMarkdown> articleArticleIdMarkdownGet(
+      @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId) {
+    return getDelegate().articleArticleIdMarkdownGet(articleId);
+  }
 
-    /**
-     * GET /article/{article_id}/recommended : Get Recommended Articles
-     * Returns a list of 10 articles (&#x60;article_ids&#x60;) as recommended by the Medium, for the given article. 
-     *
-     * @param articleId It&#39;s a unique hash id assigned to every Medium Article. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "articleArticleIdRecommendedGet",
-        summary = "Get Recommended Articles",
-        description = "Returns a list of 10 articles (`article_ids`) as recommended by the Medium, for the given article. ",
-        tags = { "Article" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleRecommended.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/article/{article_id}/recommended",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumArticleRecommended> articleArticleIdRecommendedGet(
-        @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId
-    ) {
-        return getDelegate().articleArticleIdRecommendedGet(articleId);
-    }
+  /**
+   * GET /article/{article_id}/recommended : Get Recommended Articles Returns a
+   * list of 10 articles (&#x60;article_ids&#x60;) as recommended by the Medium,
+   * for the given article.
+   *
+   * @param articleId
+   *            It&#39;s a unique hash id assigned to every Medium Article.
+   *            (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "articleArticleIdRecommendedGet", summary = "Get Recommended Articles", description = "Returns a list of 10 articles (`article_ids`) as recommended by the Medium, for the given article. ", tags = {
+      "Article"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleRecommended.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/article/{article_id}/recommended", produces = {
+      "application/json"})
 
+  default ResponseEntity<MediumArticleRecommended> articleArticleIdRecommendedGet(
+      @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId) {
+    return getDelegate().articleArticleIdRecommendedGet(articleId);
+  }
 
-    /**
-     * GET /article/{article_id}/related : Get Related Articles
-     * Returns a list of &#x60;article_ids&#x60; of the related posts. (Length &#x3D; 4) 
-     *
-     * @param articleId It&#39;s a unique hash id assigned to every Medium Article. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "articleArticleIdRelatedGet",
-        summary = "Get Related Articles",
-        description = "Returns a list of `article_ids` of the related posts. (Length = 4) ",
-        tags = { "Article" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleRelated.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/article/{article_id}/related",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumArticleRelated> articleArticleIdRelatedGet(
-        @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId
-    ) {
-        return getDelegate().articleArticleIdRelatedGet(articleId);
-    }
+  /**
+   * GET /article/{article_id}/related : Get Related Articles Returns a list of
+   * &#x60;article_ids&#x60; of the related posts. (Length &#x3D; 4)
+   *
+   * @param articleId
+   *            It&#39;s a unique hash id assigned to every Medium Article.
+   *            (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "articleArticleIdRelatedGet", summary = "Get Related Articles", description = "Returns a list of `article_ids` of the related posts. (Length = 4) ", tags = {
+      "Article"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleRelated.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/article/{article_id}/related", produces = {
+      "application/json"})
 
+  default ResponseEntity<MediumArticleRelated> articleArticleIdRelatedGet(
+      @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId) {
+    return getDelegate().articleArticleIdRelatedGet(articleId);
+  }
 
-    /**
-     * GET /article/{article_id}/responses : Get Article Responses
-     * Returns a list of responses (&#x60;response_ids&#x60;, same as &#x60;article_ids&#x60;) for a given article (&#x60;article_id&#x60;)  **Note:** To see the content of the response, use the _Get Article&#39;s Content_ endpoint (&#x60;/article/{article_id}/content&#x60;) 
-     *
-     * @param articleId It&#39;s a unique hash id assigned to every Medium Article. (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "articleArticleIdResponsesGet",
-        summary = "Get Article Responses",
-        description = "Returns a list of responses (`response_ids`, same as `article_ids`) for a given article (`article_id`)  **Note:** To see the content of the response, use the _Get Article's Content_ endpoint (`/article/{article_id}/content`) ",
-        tags = { "Article" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleResponses.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/article/{article_id}/responses",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumArticleResponses> articleArticleIdResponsesGet(
-        @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId
-    ) {
-        return getDelegate().articleArticleIdResponsesGet(articleId);
-    }
+  /**
+   * GET /article/{article_id}/responses : Get Article Responses Returns a list of
+   * responses (&#x60;response_ids&#x60;, same as &#x60;article_ids&#x60;) for a
+   * given article (&#x60;article_id&#x60;) **Note:** To see the content of the
+   * response, use the _Get Article&#39;s Content_ endpoint
+   * (&#x60;/article/{article_id}/content&#x60;)
+   *
+   * @param articleId
+   *            It&#39;s a unique hash id assigned to every Medium Article.
+   *            (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "articleArticleIdResponsesGet", summary = "Get Article Responses", description = "Returns a list of responses (`response_ids`, same as `article_ids`) for a given article (`article_id`)  **Note:** To see the content of the response, use the _Get Article's Content_ endpoint (`/article/{article_id}/content`) ", tags = {
+      "Article"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumArticleResponses.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/article/{article_id}/responses", produces = {
+      "application/json"})
+
+  default ResponseEntity<MediumArticleResponses> articleArticleIdResponsesGet(
+      @Parameter(name = "article_id", description = "It's a unique hash id assigned to every Medium Article.", required = true, in = ParameterIn.PATH) @PathVariable("article_id") String articleId) {
+    return getDelegate().articleArticleIdResponsesGet(articleId);
+  }
 
 }

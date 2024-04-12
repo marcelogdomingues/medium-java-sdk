@@ -29,9 +29,10 @@ public class MediumArticleAssets {
 
   /**
    * Get assets
+   * 
    * @return assets
-  */
-  @Valid 
+   */
+  @Valid
   @JsonProperty("assets")
   public MediumArticleAssetsAssets getAssets() {
     return assets;
@@ -42,4 +43,3 @@ public class MediumArticleAssets {
   }
 
 }
-

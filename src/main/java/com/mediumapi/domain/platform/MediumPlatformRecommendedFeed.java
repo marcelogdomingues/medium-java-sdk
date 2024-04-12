@@ -48,9 +48,10 @@ public class MediumPlatformRecommendedFeed {
 
   /**
    * Get recommendedFeed
+   * 
    * @return recommendedFeed
-  */
-  
+   */
+
   @JsonProperty("recommended_feed")
   public List<String> getRecommendedFeed() {
     return recommendedFeed;
@@ -67,9 +68,10 @@ public class MediumPlatformRecommendedFeed {
 
   /**
    * Get count
+   * 
    * @return count
-  */
-  
+   */
+
   @JsonProperty("count")
   public Integer getCount() {
     return count;
@@ -86,9 +88,10 @@ public class MediumPlatformRecommendedFeed {
 
   /**
    * Get tag
+   * 
    * @return tag
-  */
-  
+   */
+
   @JsonProperty("tag")
   public String getTag() {
     return tag;
@@ -105,9 +108,10 @@ public class MediumPlatformRecommendedFeed {
 
   /**
    * Get page
+   * 
    * @return page
-  */
-  
+   */
+
   @JsonProperty("page")
   public Integer getPage() {
     return page;
@@ -118,4 +122,3 @@ public class MediumPlatformRecommendedFeed {
   }
 
 }
-

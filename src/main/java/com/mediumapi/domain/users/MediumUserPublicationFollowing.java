@@ -38,9 +38,10 @@ public class MediumUserPublicationFollowing {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -65,9 +66,10 @@ public class MediumUserPublicationFollowing {
 
   /**
    * Get publicationFollowing
+   * 
    * @return publicationFollowing
-  */
-  
+   */
+
   @JsonProperty("publication_following")
   public List<String> getPublicationFollowing() {
     return publicationFollowing;
@@ -84,9 +86,10 @@ public class MediumUserPublicationFollowing {
 
   /**
    * Get count
+   * 
    * @return count
-  */
-  
+   */
+
   @JsonProperty("count")
   public Integer getCount() {
     return count;
@@ -97,4 +100,3 @@ public class MediumUserPublicationFollowing {
   }
 
 }
-

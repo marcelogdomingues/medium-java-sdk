@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Returns the list of &#x60;article_ids&#x60; of the latest 25 articles, posted by the user. 
+ * Returns the list of &#x60;article_ids&#x60; of the latest 25 articles, posted
+ * by the user.
  */
 
 @Getter
@@ -38,9 +39,10 @@ public class MediumUserArticles {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -65,9 +67,10 @@ public class MediumUserArticles {
 
   /**
    * Get associatedArticles
+   * 
    * @return associatedArticles
-  */
-  
+   */
+
   @JsonProperty("associated_articles")
   public List<String> getAssociatedArticles() {
     return associatedArticles;
@@ -84,9 +87,10 @@ public class MediumUserArticles {
 
   /**
    * Get count
+   * 
    * @return count
-  */
-  
+   */
+
   @JsonProperty("count")
   public Integer getCount() {
     return count;
@@ -97,4 +101,3 @@ public class MediumUserArticles {
   }
 
 }
-

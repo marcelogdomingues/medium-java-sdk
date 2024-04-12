@@ -44,9 +44,10 @@ public class MediumPlatformRelatedTags {
 
   /**
    * Get relatedTags
+   * 
    * @return relatedTags
-  */
-  
+   */
+
   @JsonProperty("related_tags")
   public List<String> getRelatedTags() {
     return relatedTags;
@@ -63,9 +64,10 @@ public class MediumPlatformRelatedTags {
 
   /**
    * Get givenTag
+   * 
    * @return givenTag
-  */
-  
+   */
+
   @JsonProperty("given_tag")
   public String getGivenTag() {
     return givenTag;
@@ -76,4 +78,3 @@ public class MediumPlatformRelatedTags {
   }
 
 }
-

@@ -38,9 +38,10 @@ public class MediumUserInterests {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -65,9 +66,10 @@ public class MediumUserInterests {
 
   /**
    * Get tagsFollowed
+   * 
    * @return tagsFollowed
-  */
-  
+   */
+
   @JsonProperty("tags_followed")
   public List<String> getTagsFollowed() {
     return tagsFollowed;
@@ -84,9 +86,10 @@ public class MediumUserInterests {
 
   /**
    * Get count
+   * 
    * @return count
-  */
-  
+   */
+
   @JsonProperty("count")
   public Integer getCount() {
     return count;
@@ -97,4 +100,3 @@ public class MediumUserInterests {
   }
 
 }
-

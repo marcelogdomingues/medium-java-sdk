@@ -45,6 +45,7 @@ public class MediumUserPublicationsPublications {
 
   /**
    * Get adminIn
+   * 
    * @return adminIn
    */
 
@@ -72,6 +73,7 @@ public class MediumUserPublicationsPublications {
 
   /**
    * Get writerIn
+   * 
    * @return writerIn
    */
 
@@ -85,4 +87,3 @@ public class MediumUserPublicationsPublications {
   }
 
 }
-

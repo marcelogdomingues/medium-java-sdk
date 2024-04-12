@@ -26,162 +26,101 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface SearchApi {
 
-    default SearchApiClient getDelegate() {
-        return new SearchApiClient() {};
-    }
+  default SearchApiClient getDelegate() {
+    return new SearchApiClient() {
+    };
+  }
 
-    /**
-     * GET /search/articles : Search Articles
-     * Returns the list of &#x60;articles_ids&#x60; for the given search query results. (Max Length &#x3D; 1000) 
-     *
-     * @param query Search query (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "searchArticlesGet",
-        summary = "Search Articles",
-        description = "Returns the list of `articles_ids` for the given search query results. (Max Length = 1000) ",
-        tags = { "Search" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumSearchArticles.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/search/articles",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumSearchArticles> searchArticlesGet(
-        @NotNull @Parameter(name = "query", description = "Search query", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "query", required = true) String query
-    ) {
-        return getDelegate().searchArticlesGet(query);
-    }
+  /**
+   * GET /search/articles : Search Articles Returns the list of
+   * &#x60;articles_ids&#x60; for the given search query results. (Max Length
+   * &#x3D; 1000)
+   *
+   * @param query
+   *            Search query (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "searchArticlesGet", summary = "Search Articles", description = "Returns the list of `articles_ids` for the given search query results. (Max Length = 1000) ", tags = {
+      "Search"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumSearchArticles.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/search/articles", produces = {"application/json"})
 
+  default ResponseEntity<MediumSearchArticles> searchArticlesGet(
+      @NotNull @Parameter(name = "query", description = "Search query", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "query", required = true) String query) {
+    return getDelegate().searchArticlesGet(query);
+  }
 
-    /**
-     * GET /search/lists : Search Lists
-     * Returns an array of &#x60;list_ids&#x60; for the given search query results. (Max Length &#x3D; 1000) 
-     *
-     * @param query Search query (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "searchListsGet",
-        summary = "Search Lists",
-        description = "Returns an array of `list_ids` for the given search query results. (Max Length = 1000) ",
-        tags = { "Search" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumSearchLists.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/search/lists",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumSearchLists> searchListsGet(
-        @NotNull @Parameter(name = "query", description = "Search query", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "query", required = true) String query
-    ) {
-        return getDelegate().searchListsGet(query);
-    }
+  /**
+   * GET /search/lists : Search Lists Returns an array of &#x60;list_ids&#x60; for
+   * the given search query results. (Max Length &#x3D; 1000)
+   *
+   * @param query
+   *            Search query (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "searchListsGet", summary = "Search Lists", description = "Returns an array of `list_ids` for the given search query results. (Max Length = 1000) ", tags = {
+      "Search"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumSearchLists.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/search/lists", produces = {"application/json"})
 
+  default ResponseEntity<MediumSearchLists> searchListsGet(
+      @NotNull @Parameter(name = "query", description = "Search query", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "query", required = true) String query) {
+    return getDelegate().searchListsGet(query);
+  }
 
-    /**
-     * GET /search/publications : Search Publications
-     * Returns the list of &#x60;publication_ids&#x60; for the given search query results. (Max Length &#x3D; 1000) 
-     *
-     * @param query Search query (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "searchPublicationsGet",
-        summary = "Search Publications",
-        description = "Returns the list of `publication_ids` for the given search query results. (Max Length = 1000) ",
-        tags = { "Search" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumSearchPublications.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/search/publications",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumSearchPublications> searchPublicationsGet(
-        @NotNull @Parameter(name = "query", description = "Search query", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "query", required = true) String query
-    ) {
-        return getDelegate().searchPublicationsGet(query);
-    }
+  /**
+   * GET /search/publications : Search Publications Returns the list of
+   * &#x60;publication_ids&#x60; for the given search query results. (Max Length
+   * &#x3D; 1000)
+   *
+   * @param query
+   *            Search query (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "searchPublicationsGet", summary = "Search Publications", description = "Returns the list of `publication_ids` for the given search query results. (Max Length = 1000) ", tags = {
+      "Search"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumSearchPublications.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/search/publications", produces = {"application/json"})
 
+  default ResponseEntity<MediumSearchPublications> searchPublicationsGet(
+      @NotNull @Parameter(name = "query", description = "Search query", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "query", required = true) String query) {
+    return getDelegate().searchPublicationsGet(query);
+  }
 
-    /**
-     * GET /search/tags : Search Tags
-     * Returns a list of &#x60;tags&#x60; for the given search query results. (Max Length &#x3D; 1000) 
-     *
-     * @param query Search query (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "searchTagsGet",
-        summary = "Search Tags",
-        description = "Returns a list of `tags` for the given search query results. (Max Length = 1000) ",
-        tags = { "Search" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumSearchTags.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/search/tags",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumSearchTags> searchTagsGet(
-        @NotNull @Parameter(name = "query", description = "Search query", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "query", required = true) String query
-    ) {
-        return getDelegate().searchTagsGet(query);
-    }
+  /**
+   * GET /search/tags : Search Tags Returns a list of &#x60;tags&#x60; for the
+   * given search query results. (Max Length &#x3D; 1000)
+   *
+   * @param query
+   *            Search query (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "searchTagsGet", summary = "Search Tags", description = "Returns a list of `tags` for the given search query results. (Max Length = 1000) ", tags = {
+      "Search"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumSearchTags.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/search/tags", produces = {"application/json"})
 
+  default ResponseEntity<MediumSearchTags> searchTagsGet(
+      @NotNull @Parameter(name = "query", description = "Search query", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "query", required = true) String query) {
+    return getDelegate().searchTagsGet(query);
+  }
 
-    /**
-     * GET /search/users : Search Users
-     * Returns a list of &#x60;user_ids&#x60; for the given search query results. (Max Length &#x3D; 1000) 
-     *
-     * @param query Search query (required)
-     * @return OK (status code 200)
-     */
-    @Operation(
-        operationId = "searchUsersGet",
-        summary = "Search Users",
-        description = "Returns a list of `user_ids` for the given search query results. (Max Length = 1000) ",
-        tags = { "Search" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = MediumSearchUsers.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/search/users",
-        produces = { "application/json" }
-    )
-    
-    default ResponseEntity<MediumSearchUsers> searchUsersGet(
-        @NotNull @Parameter(name = "query", description = "Search query", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "query", required = true) String query
-    ) {
-        return getDelegate().searchUsersGet(query);
-    }
+  /**
+   * GET /search/users : Search Users Returns a list of &#x60;user_ids&#x60; for
+   * the given search query results. (Max Length &#x3D; 1000)
+   *
+   * @param query
+   *            Search query (required)
+   * @return OK (status code 200)
+   */
+  @Operation(operationId = "searchUsersGet", summary = "Search Users", description = "Returns a list of `user_ids` for the given search query results. (Max Length = 1000) ", tags = {
+      "Search"}, responses = {@ApiResponse(responseCode = "200", description = "OK", content = {
+          @Content(mediaType = "application/json", schema = @Schema(implementation = MediumSearchUsers.class))})})
+  @RequestMapping(method = RequestMethod.GET, value = "/search/users", produces = {"application/json"})
+
+  default ResponseEntity<MediumSearchUsers> searchUsersGet(
+      @NotNull @Parameter(name = "query", description = "Search query", required = true, in = ParameterIn.QUERY) @Valid @RequestParam(value = "query", required = true) String query) {
+    return getDelegate().searchUsersGet(query);
+  }
 
 }

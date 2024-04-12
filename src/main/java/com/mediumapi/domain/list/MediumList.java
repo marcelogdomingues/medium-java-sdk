@@ -49,9 +49,10 @@ public class MediumList {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -68,9 +69,10 @@ public class MediumList {
 
   /**
    * Get name
+   * 
    * @return name
-  */
-  
+   */
+
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -87,9 +89,10 @@ public class MediumList {
 
   /**
    * Get description
+   * 
    * @return description
-  */
-  
+   */
+
   @JsonProperty("description")
   public String getDescription() {
     return description;
@@ -106,9 +109,10 @@ public class MediumList {
 
   /**
    * `user_id` of the author
+   * 
    * @return author
-  */
-  
+   */
+
   @JsonProperty("author")
   public String getAuthor() {
     return author;
@@ -125,9 +129,10 @@ public class MediumList {
 
   /**
    * Number of articles in the list
+   * 
    * @return count
-  */
-  
+   */
+
   @JsonProperty("count")
   public Integer getCount() {
     return count;
@@ -144,9 +149,10 @@ public class MediumList {
 
   /**
    * Get responsesCount
+   * 
    * @return responsesCount
-  */
-  
+   */
+
   @JsonProperty("responses_count")
   public Integer getResponsesCount() {
     return responsesCount;
@@ -163,9 +169,10 @@ public class MediumList {
 
   /**
    * Get claps
+   * 
    * @return claps
-  */
-  
+   */
+
   @JsonProperty("claps")
   public Integer getClaps() {
     return claps;
@@ -182,9 +189,10 @@ public class MediumList {
 
   /**
    * Get voters
+   * 
    * @return voters
-  */
-  
+   */
+
   @JsonProperty("voters")
   public Integer getVoters() {
     return voters;
@@ -201,9 +209,10 @@ public class MediumList {
 
   /**
    * Get createdAt
+   * 
    * @return createdAt
-  */
-  
+   */
+
   @JsonProperty("created_at")
   public String getCreatedAt() {
     return createdAt;
@@ -220,9 +229,10 @@ public class MediumList {
 
   /**
    * Get lastItemInsertedAt
+   * 
    * @return lastItemInsertedAt
-  */
-  
+   */
+
   @JsonProperty("last_item_inserted_at")
   public String getLastItemInsertedAt() {
     return lastItemInsertedAt;
@@ -239,9 +249,10 @@ public class MediumList {
 
   /**
    * Image URL
+   * 
    * @return thumbnail
-  */
-  
+   */
+
   @JsonProperty("thumbnail")
   public String getThumbnail() {
     return thumbnail;
@@ -252,4 +263,3 @@ public class MediumList {
   }
 
 }
-

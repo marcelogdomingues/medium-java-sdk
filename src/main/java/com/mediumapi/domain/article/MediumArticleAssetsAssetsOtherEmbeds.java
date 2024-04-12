@@ -27,12 +27,14 @@ public class MediumArticleAssetsAssetsOtherEmbeds {
   @Valid
   private List<@Valid MediumArticleAssetsAssetsOtherEmbedsExampleComInner> exampleCom;
 
-  public MediumArticleAssetsAssetsOtherEmbeds exampleCom(List<@Valid MediumArticleAssetsAssetsOtherEmbedsExampleComInner> exampleCom) {
+  public MediumArticleAssetsAssetsOtherEmbeds exampleCom(
+      List<@Valid MediumArticleAssetsAssetsOtherEmbedsExampleComInner> exampleCom) {
     this.exampleCom = exampleCom;
     return this;
   }
 
-  public MediumArticleAssetsAssetsOtherEmbeds addExampleComItem(MediumArticleAssetsAssetsOtherEmbedsExampleComInner exampleComItem) {
+  public MediumArticleAssetsAssetsOtherEmbeds addExampleComItem(
+      MediumArticleAssetsAssetsOtherEmbedsExampleComInner exampleComItem) {
     if (this.exampleCom == null) {
       this.exampleCom = new ArrayList<>();
     }
@@ -42,9 +44,10 @@ public class MediumArticleAssetsAssetsOtherEmbeds {
 
   /**
    * Get exampleCom
+   * 
    * @return exampleCom
-  */
-  @Valid 
+   */
+  @Valid
   @JsonProperty("example.com")
   public List<@Valid MediumArticleAssetsAssetsOtherEmbedsExampleComInner> getExampleCom() {
     return exampleCom;
@@ -54,4 +57,3 @@ public class MediumArticleAssetsAssetsOtherEmbeds {
     this.exampleCom = exampleCom;
   }
 }
-

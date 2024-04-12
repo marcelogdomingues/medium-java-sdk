@@ -11,7 +11,6 @@ import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * MediumSearchTags
@@ -45,9 +44,10 @@ public class MediumSearchTags {
 
   /**
    * Get tags
+   * 
    * @return tags
-  */
-  
+   */
+
   @JsonProperty("tags")
   public List<String> getTags() {
     return tags;
@@ -64,9 +64,10 @@ public class MediumSearchTags {
 
   /**
    * Get searchQuery
+   * 
    * @return searchQuery
-  */
-  
+   */
+
   @JsonProperty("search_query")
   public String getSearchQuery() {
     return searchQuery;
@@ -77,4 +78,3 @@ public class MediumSearchTags {
   }
 
 }
-

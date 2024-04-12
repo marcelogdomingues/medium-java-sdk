@@ -32,9 +32,10 @@ public class MediumArticleAssetsAssetsOtherEmbedsExampleComInner {
 
   /**
    * Get title
+   * 
    * @return title
-  */
-  
+   */
+
   @JsonProperty("title")
   public String getTitle() {
     return title;
@@ -51,9 +52,10 @@ public class MediumArticleAssetsAssetsOtherEmbedsExampleComInner {
 
   /**
    * Get href
+   * 
    * @return href
-  */
-  
+   */
+
   @JsonProperty("href")
   public String getHref() {
     return href;
@@ -64,4 +66,3 @@ public class MediumArticleAssetsAssetsOtherEmbedsExampleComInner {
   }
 
 }
-

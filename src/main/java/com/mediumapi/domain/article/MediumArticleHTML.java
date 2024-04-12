@@ -31,9 +31,10 @@ public class MediumArticleHTML {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -50,9 +51,10 @@ public class MediumArticleHTML {
 
   /**
    * Get html
+   * 
    * @return html
-  */
-  
+   */
+
   @JsonProperty("html")
   public String getHtml() {
     return html;
@@ -63,4 +65,3 @@ public class MediumArticleHTML {
   }
 
 }
-

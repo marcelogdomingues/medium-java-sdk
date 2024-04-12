@@ -32,9 +32,10 @@ public class MediumArticleMarkdown {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -51,9 +52,10 @@ public class MediumArticleMarkdown {
 
   /**
    * Get markdown
+   * 
    * @return markdown
-  */
-  
+   */
+
   @JsonProperty("markdown")
   public String getMarkdown() {
     return markdown;
@@ -64,4 +66,3 @@ public class MediumArticleMarkdown {
   }
 
 }
-

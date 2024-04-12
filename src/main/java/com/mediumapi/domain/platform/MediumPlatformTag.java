@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 /**
  * MediumPlatformTag
  */
@@ -42,9 +41,10 @@ public class MediumPlatformTag {
 
   /**
    * Get tag
+   * 
    * @return tag
-  */
-  
+   */
+
   @JsonProperty("tag")
   public String getTag() {
     return tag;
@@ -61,9 +61,10 @@ public class MediumPlatformTag {
 
   /**
    * Get name
+   * 
    * @return name
-  */
-  
+   */
+
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -80,9 +81,10 @@ public class MediumPlatformTag {
 
   /**
    * Get followers
+   * 
    * @return followers
-  */
-  
+   */
+
   @JsonProperty("followers")
   public Integer getFollowers() {
     return followers;
@@ -99,9 +101,10 @@ public class MediumPlatformTag {
 
   /**
    * Get articlesCount
+   * 
    * @return articlesCount
-  */
-  
+   */
+
   @JsonProperty("articles_count")
   public Integer getArticlesCount() {
     return articlesCount;
@@ -118,9 +121,10 @@ public class MediumPlatformTag {
 
   /**
    * Get authorsCount
+   * 
    * @return authorsCount
-  */
-  
+   */
+
   @JsonProperty("authors_count")
   public Integer getAuthorsCount() {
     return authorsCount;
@@ -137,9 +141,10 @@ public class MediumPlatformTag {
 
   /**
    * Get latestArticlesCount
+   * 
    * @return latestArticlesCount
-  */
-  
+   */
+
   @JsonProperty("latest_articles_count")
   public Integer getLatestArticlesCount() {
     return latestArticlesCount;
@@ -156,9 +161,10 @@ public class MediumPlatformTag {
 
   /**
    * Get latestAuthorsCount
+   * 
    * @return latestAuthorsCount
-  */
-  
+   */
+
   @JsonProperty("latest_authors_count")
   public Integer getLatestAuthorsCount() {
     return latestAuthorsCount;
@@ -169,4 +175,3 @@ public class MediumPlatformTag {
   }
 
 }
-

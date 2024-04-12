@@ -36,9 +36,10 @@ public class MediumUserFollowing {
 
   /**
    * Get id
+   * 
    * @return id
-  */
-  
+   */
+
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -63,9 +64,10 @@ public class MediumUserFollowing {
 
   /**
    * Get following
+   * 
    * @return following
-  */
-  
+   */
+
   @JsonProperty("following")
   public List<String> getFollowing() {
     return following;
@@ -76,4 +78,3 @@ public class MediumUserFollowing {
   }
 
 }
-
